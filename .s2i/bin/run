@@ -1,0 +1,16 @@
+#!/bin/bash -e
+
+echo "*--------------------------------------------------------------------------[ENV]"
+set
+
+echo "*----------------------------------------------------------------[setup laravel]"
+if [ "${DB_CONNECTION}" != "" ]; then
+    echo "Migrating database 'php artisan migrate --force'..."
+    php artisan migrate --force
+fi
+
+echo "Create the symbolic link 'php artisan storage:link'..."
+php artisan storage:link
+
+echo "*--------------------------------------------------------------[exec run script]"
+source ${STI_SCRIPTS_PATH}/run
