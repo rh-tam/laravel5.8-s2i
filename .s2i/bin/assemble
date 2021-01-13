@@ -2,10 +2,12 @@
 
 echo "*--------------------------------------------------------------------------[ENV]"
 set
-echo "*------[upgrade composer]------"
-composer self-update --1
+
 echo "*---------------------------------------------------------[exec assemble script]"
 source ${STI_SCRIPTS_PATH}/assemble
+
+echo "*------[upgrade composer]------"
+composer self-update --1
 
 echo "*------------------------------------------------------------[setup laravel env]"
 cp .env.example .env
